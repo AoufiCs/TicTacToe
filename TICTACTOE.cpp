@@ -1,31 +1,104 @@
 #include <iostream>
 using namespace std;
 
-int S = 0;
-char matrix[3][3] =  {'1', '2','3','4','5','6','7','8','9' };
-char player = 'X';
-bool win_condition = 0 ;
+int Draw_condition = 0;
+char matrix[3][3] = { '1','2','3','4','5','6','7','8','9' };
+char Player = 'X';
+int win_condition = 0;
 
-void board()
+void Board()
 {
     system("cls");
-    cout<<"Tic Tac Toe"<<endl;
+    cout << " \n\n             Tic Tac Toe           \n\n ";
+    cout << " Player 1 [X] ***** Player 2 [O]" << endl;
+    cout << "           "   << "    |     |     " << endl;
     for (int i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 3; j++)
-        {
-            cout << matrix[i][j] << " ";
-        }
-        cout << endl;
+      cout << "           " << " " << matrix[i][0]<< "  |  "<< matrix[i][1]<< "  |  " << matrix[i][2]<<  endl;
+      cout << "           " << "____|_____|_____" << endl;
+      cout << "           " << "    |     |     " << endl;
     }
-}
-
-void toogleplayer()
+    cout << " Please Choose a number in the field ! " << endl;
+    cout << " It's " << Player<< " turn !"<<  endl;
+} 
+void TooglePlayer()
 {
-    if (player == 'X')
-        player = 'O';
+    if (Player == 'X')
+        Player = 'O';
     else
-        player = 'X';
+        Player = 'X';
+}
+void Input()
+{
+    int a;
+    cin >> a;
+    if (a == 1 && matrix[0][0] == '1')
+    {
+        matrix[0][0] = Player;
+        Draw_condition += 1;
+
+    }
+    else if (a == 2 && matrix[0][1] == '2')
+    {
+        matrix[0][1] = Player;
+        Draw_condition += 1;
+
+    }
+    else if ((a == 3) && matrix[0][2] == '3')
+    {
+        matrix[0][2] = Player;
+        Draw_condition += 1;
+
+    }
+    else if ((a == 4) && matrix[1][0] == '4')
+    {
+        matrix[1][0] = Player;
+        Draw_condition += 1;
+
+    }
+    else if ((a == 5) && matrix[1][1] == '5')
+    {
+        matrix[1][1] = Player;
+        Draw_condition += 1;
+
+    }
+    else if ((a == 6) && matrix[1][2] == '6')
+    {
+        matrix[1][2] = Player;
+        Draw_condition += 1;
+
+    }
+    else if (a == 7 && matrix[2][0] == '7')
+    {
+        matrix[2][0] = Player;
+        Draw_condition += 1;
+    }
+    else if (a == 8 && matrix[2][1] == '8')
+    {
+        matrix[2][1] = Player;
+        Draw_condition += 1;
+
+    }
+    else if (a == 9 && matrix[2][2] == '9')
+    {
+        matrix[2][2] = Player;
+        Draw_condition += 1;
+
+    }
+    else if (a < 1 || a > 9)
+    {
+        cout << "Choose an appropriate number!!";
+        system("pause");
+    }
+    else
+    {
+        
+        cout << "Choose an available number from the field!";
+        system("pause");
+        TooglePlayer();
+
+    }
+
 
 }
 void win()
@@ -34,7 +107,6 @@ void win()
     {
         cout << "The winner is : " << matrix[0][0] << endl;
         win_condition = 1;
-
     }
 
     else if (matrix[0][0] == matrix[0][1] and matrix[0][0] == matrix[0][2])
@@ -72,82 +144,25 @@ void win()
         cout << "The winner is : " << matrix[0][1] << endl;
         win_condition = 1;
     }
-    else if (S == 9)
+    else if (Draw_condition == 9)
     {
-        cout << "It's a draw!";
+        cout << "This is a draw!"<<endl;
         win_condition = 1;
     }
     else
         win_condition = 0;
-        
 }
-void input()
-{
-    
-    int a;
-    cout << "Please choose the number u wanna play between 1 and 9" << endl;
-    cin >> a; 
-    if (a == 1)
-    {
-        matrix[0][0] = player;
-        S += 1;
-    }
-    else if (a == 2)
-    {
-        matrix[0][1] = player;
-        S += 1;
-    }
-    else if (a == 3)
-    {
-        matrix[0][2] = player;
-        S += 1;
-    }
-    else if (a == 4)
-    {
-        matrix[1][0] = player;
-        S += 1;
-    }
-    else if (a == 5)
-    {
-        matrix[1][1] = player;
-        S += 1;
-    }
-    else if (a == 6)
-    {
-        matrix[1][2] = player;
-        S += 1;
-    }
-    else if (a == 7)
-    {
-        matrix[2][0] = player;
-        S += 1;
-    }
-    else if (a == 8)
-    {
-        matrix[2][1] = player;
-        S += 1;
-    }
-    else if (a == 9)
-    {
-        matrix[2][2] = player;
-        S += 1;
-    }
-    else if (a < 1 or a>9)
-        cout << "Please choose an appropriate number!" << endl;
-    
-}
+
 int main()
 {
-    board(); 
     while (win_condition == 0)
     {
-        input();
-        board();
-        toogleplayer();
+        Board();
+        Input();
+        TooglePlayer();
         win();
     }
-    
-   
-
+    system("pause");
     
 }
+
