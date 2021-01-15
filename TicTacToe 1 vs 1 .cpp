@@ -159,6 +159,7 @@ int main()
     {
         Board();
         Input();
+        Board();
         TooglePlayer();
         win();
     }
