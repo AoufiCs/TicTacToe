@@ -3,93 +3,80 @@
 #include <cstdlib> 
 using namespace std;
 //Variables
-char Player= 'X';
+char Player = 'X';
 char matrix[3][3] = { '1','2','3','4','5','6','7','8','9' };
 char matrixcopie[3][3] = { '1','2','3','4','5','6','7','8','9' };
-int Mark = 1, Win_condition = 0, Pc_Move = 0, Cond = 1, Draw_condition = 0;
-//Change Player
-void TooglePlayer()
-{
-    if (Mark % 2 == 0) {
-        Player = 'X';
-        Mark += 1;
-    }
-    else
-    {
-        Player = 'O';
-        Mark += 1;
-    }
-}
+int Mark = 1, Win_condition = 0, Pc_Move = 0, Cond = 1,index=1, Draw_condition = 0;
 //Function deciding Computer moves
 void Pc()
 {
     srand(time(NULL));
     while (Cond == 1) {
-         Pc_Move = (rand() % 9)+1;
-         if (Pc_Move == 1 && matrix[0][0] == '1')
-         {
-             matrix[0][0] = Player;
-             Draw_condition += 1;
-             Cond = 0;
-         }
-         else if (Pc_Move == 2 && matrix[0][1] == '2')
-         {
-             matrix[0][1] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        Pc_Move = (rand() % 9) + 1;
+        if (Pc_Move == 1 && matrix[0][0] == '1')
+        {
+            matrix[0][0] ='O';
+            Draw_condition += 1;
+            Cond = 0;
+        }
+        else if (Pc_Move == 2 && matrix[0][1] == '2')
+        {
+            matrix[0][1] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if ((Pc_Move == 3) && matrix[0][2] == '3')
-         {
-             matrix[0][2] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if ((Pc_Move == 3) && matrix[0][2] == '3')
+        {
+            matrix[0][2] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if ((Pc_Move == 4) && matrix[1][0] == '4')
-         {
-             matrix[1][0] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if ((Pc_Move == 4) && matrix[1][0] == '4')
+        {
+            matrix[1][0] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if ((Pc_Move == 5) && matrix[1][1] == '5')
-         {
-             matrix[1][1] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if ((Pc_Move == 5) && matrix[1][1] == '5')
+        {
+            matrix[1][1] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if ((Pc_Move == 6) && matrix[1][2] == '6')
-         {
-             matrix[1][2] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if ((Pc_Move == 6) && matrix[1][2] == '6')
+        {
+            matrix[1][2] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if (Pc_Move == 7 && matrix[2][0] == '7')
-         {
-             matrix[2][0] = Player;
-             Draw_condition += 1;
-             Cond = 0;
-         }
-         else if (Pc_Move == 8 && matrix[2][1] == '8')
-         {
-             matrix[2][1] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if (Pc_Move == 7 && matrix[2][0] == '7')
+        {
+            matrix[2][0] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
+        }
+        else if (Pc_Move == 8 && matrix[2][1] == '8')
+        {
+            matrix[2][1] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         }
-         else if (Pc_Move == 9 && matrix[2][2] == '9')
-         {
-             matrix[2][2] = Player;
-             Draw_condition += 1;
-             Cond = 0;
+        }
+        else if (Pc_Move == 9 && matrix[2][2] == '9')
+        {
+            matrix[2][2] = 'O';
+            Draw_condition += 1;
+            Cond = 0;
 
-         } 
-             
-    }     
-    
+        }
+
+    }
+
 }
 //Function deciding Player/User moves
 void Input()
@@ -99,77 +86,77 @@ void Input()
     cin >> a;
     if (a == 1 && matrix[0][0] == '1')
     {
-        matrix[0][0] = Player;
+        matrix[0][0] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if (a == 2 && matrix[0][1] == '2')
     {
-        matrix[0][1] = Player;
+        matrix[0][1] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if ((a == 3) && matrix[0][2] == '3')
     {
-        matrix[0][2] = Player;
+        matrix[0][2] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if ((a == 4) && matrix[1][0] == '4')
     {
-        matrix[1][0] = Player;
+        matrix[1][0] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if ((a == 5) && matrix[1][1] == '5')
     {
-        matrix[1][1] = Player;
+        matrix[1][1] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if ((a == 6) && matrix[1][2] == '6')
     {
-        matrix[1][2] = Player;
+        matrix[1][2] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if (a == 7 && matrix[2][0] == '7')
     {
-        matrix[2][0] = Player;
+        matrix[2][0] = 'X';
         Draw_condition += 1;
         Cond = 1;
     }
     else if (a == 8 && matrix[2][1] == '8')
     {
-        matrix[2][1] = Player;
+        matrix[2][1] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if (a == 9 && matrix[2][2] == '9')
     {
-        matrix[2][2] = Player;
+        matrix[2][2] = 'X';
         Draw_condition += 1;
         Cond = 1;
 
     }
     else if (a < 1 || a > 9)
     {
-        cout << "Choose an appropriate number!!"<<endl;
+        cout << "Choose an appropriate number!!" << endl;
         system("pause");
     }
     else
     {
 
-        cout << "Choose an available number from the field!"<<endl;
+        cout << "Choose an available number from the field!" << endl;
         system("pause");
-       
+
     }
 }
 //Checking winning conditions 
@@ -244,17 +231,13 @@ void Board()
 
     }
 }
-/***************************************************************************************************************************************************
-*****************************************************************Game's Main Program******************************************************************
-****************************************************************************************************************************************************/
-int main()
+void Game()
 {
     while (Win_condition == 0)
     {
         Board();
         Input();
-        TooglePlayer();
-        if (Draw_condition !=9) 
+        if (Draw_condition != 9)
             Pc();
         else
         {
@@ -262,32 +245,29 @@ int main()
             break;
         }
         Board();
-        TooglePlayer();
         win();
     }
     cout << " If u want to play again, click [R] " << endl;
     char R;
-    cin >> R ;
-    if (R == 'R' || R == 'r') 
+    cin >> R;
+    if (R == 'R' || R == 'r')
     {
         ClearAll();
-        while (Win_condition == 0)
-        {
-            Board();
-            Input();
-            TooglePlayer();
-            if (Draw_condition != 9)
-                Pc();
-            else
-            {
-                win();
-                break;
-            }
-            Board();
-            TooglePlayer();
-            win();
-        }
-
     }
+    else
+        index = 0;
+
+}
+/***************************************************************************************************************************************************
+*****************************************************************Game's Main Program******************************************************************
+****************************************************************************************************************************************************/
+int main()
+{
+    while (index == 1)
+    {
+        Game();
+    }
+    cout << "Thanks for playing!";
+    
 }
 
